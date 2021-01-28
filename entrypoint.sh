@@ -28,9 +28,11 @@ else
   sed -i "s/memory_limit =.*/memory_limit = $PHP_MEMORY_LIMIT/g" /etc/php7/php.ini
 fi
 
+# cleanup for safty during runtime
+apk del shadow
+rm -f /sbin/apk
 
-# apk remove shadow
+# start syslog for stdout (required for access control and later syslog server redirection)
 syslogd -O /proc/1/fd/1
 
-#chmod o+w /dev/stdout
 /usr/bin/supervisord -c /etc/supervisord.conf
