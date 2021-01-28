@@ -14,7 +14,7 @@ Small and secure version of the LE*P stack as container (so basically LEMP witho
 
 > Create a docker-compose.yml file. The following template may be changed it as you require:
 
-~~
+~~~
 version: '2'
 services:
   webserver-container:
@@ -29,7 +29,7 @@ services:
       - "127.0.0.1:8080:8080"
     volumes:
       - /path/to/local/www:/var/www/html
-~~
+~~~
 
 Changing the environment may affect the following behaviour:
 
